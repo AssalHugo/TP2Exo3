@@ -1,0 +1,38 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Etudiant{
+ - HashMap<String, int> resultat
+    + Etudiant(Identite identite)
+    + ajouter(String matiere, int note): void
+    + moyenne(String matiere): double
+    + moyenne(): double
+}
+
+class Identite{
+ - String nom
+ - String prenom
+ - String NIP
+    + Identite(String nom, String prenom, String NIP)
+}
+
+class Formation{
+- String identifiant
+- HashMap<Matiere, double> coefficients
+    + Formation(String identifiant)
+}
+
+class Matiere{
+ - String nom
+    + Matiere(String nom)
+}
+
+class Group{
+- HashMap<Etudiant, Formation> etudiants
+}
+
+Identite "1" <-- "1" Etudiant : identite
+Etudiant "1" --> "*" Formation : formation
+Formation "1" --> "*" Matiere : collectionMatiere
+
+@enduml
