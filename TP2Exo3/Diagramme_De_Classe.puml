@@ -3,9 +3,9 @@
 
 class Etudiant{
  - resultats : HashMap<Matiere, double>
-    + Etudiant(Identite identite)
-    + ajouter(String matiere, int note): void
-    + moyenne(String matiere): double
+    + Etudiant(Identite)
+    + ajouter(Matiere, int note): void
+    + moyenne(Matiere): double
     + moyenne(): double
 }
 
@@ -13,23 +13,23 @@ class Identite{
  - nom : String
  - prenom : String
  - NIP : String
-    + Identite(nom, prenom, NIP)
+    + Identite(String, String, String)
 }
 
 class Formation{
 - idenitifiant : String
 - coefficients : HashMap<Matiere, double>
-    + Formation(identifiant)
+    + Formation(String)
 }
 
 class Matiere{
  - nom : String
-    + Matiere(nom)
+    + Matiere(String)
 }
 
 class Group{
 - etudiants : HashMap<Etudiant, Formation>
-    + Group(etudiants)
+    + Group(HashMap<Etudiant, Formation>)
 }
 
 Identite "1" <-- "1" Etudiant : identite
