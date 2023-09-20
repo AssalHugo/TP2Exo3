@@ -15,7 +15,13 @@ public class Etudiant {
         this.resultats = new HashMap<Matiere, List<Double>>();
     }
 
-    public void ajouter(Matiere matiere, double note) {
-        this.resultats.get(matiere).add(note);
+    public boolean ajouter(Matiere matiere, double note) {
+
+        if (this.formation.getCoefficients && note >= 0 && note <= 20) {
+            this.resultats.get(matiere).add(note);
+            return true;
+        }
+        return false;
+
     }
 }

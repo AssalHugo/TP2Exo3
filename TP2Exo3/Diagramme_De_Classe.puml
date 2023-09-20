@@ -4,7 +4,7 @@
 class Etudiant{
  - resultats : HashMap<Matiere, List<double>>
     + Etudiant(Identite, Formation)
-    + ajouter(Matiere, double: void
+    + ajouter(Matiere, double: boolean
     + moyenne(Matiere): double
     + moyenne(): double
 }
@@ -28,8 +28,8 @@ class Matiere{
 }
 
 class Group{
-- etudiants : HashMap<Etudiant, Formation>
-    + Group(HashMap<Etudiant, Formation>)
+- etudiants : HashMap<Formation, Etudiant>
+    + Group(HashMap<Formation, Etudiant>)
 }
 
 Identite "1" <-- "1" Etudiant : identite
