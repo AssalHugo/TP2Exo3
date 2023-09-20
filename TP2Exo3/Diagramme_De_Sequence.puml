@@ -1,10 +1,24 @@
 @startuml
 'https://plantuml.com/sequence-diagram
 
-alt Toutes les moyennes sont effectués
-    Etudiant -> Etudiant : Moyenne()
-else Toutes les moyennes ne sont pas effectués
-    Etudiant -> Etudiant : Moyenne(Matieres : String)
+participant "main" as m
+participant "etu : Etudiant" as E
+
+
+create E
+m -> E : new
+
+m -> E : moyenne()
+activate E
+
+loop resultats.size()
+    E -> Etudiant :moyenne(resultats.get(Matiere))
+    activate Etudiant
+    Etudiant --> E : moyenne
+    deactivate Etudiant
 end
+
+E --> m : moyenne
+deactivate E
 
 @enduml
