@@ -28,8 +28,8 @@ class Matiere{
 }
 
 class Group{
-- etudiants : HashMap<Formation, Etudiant>
-    + Group(HashMap<Formation, Etudiant>)
+- etudiants : HashMap<Formation, List<Etudiant>>
+    + Group(HashMap<Formation, List<Etudiant>>)
 }
 
 Identite "1" <-- "1" Etudiant : identite
