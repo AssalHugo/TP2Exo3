@@ -1,0 +1,10 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+alt Toutes les moyennes sont effectués
+    Etudiant -> Etudiant : Moyenne()
+else Toutes les moyennes ne sont pas effectués
+    Etudiant -> Etudiant : Moyenne(Matieres : String)
+end
+
+@enduml
