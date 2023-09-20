@@ -1,0 +1,21 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+participant "main" as m
+participant "grp : Groupe" as G
+participant "etu : Etudiant" as E
+
+create G
+m -> G : new
+
+
+loop etudiant.get(formation).size()
+    G -> E : moyenne(matiere)
+    activate E
+    E --> G : moyenne
+    deactivate E
+end
+
+G --> m : moyenne
+
+@enduml
