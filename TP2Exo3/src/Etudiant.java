@@ -15,13 +15,50 @@ public class Etudiant {
         this.resultats = new HashMap<Matiere, List<Double>>();
     }
 
+    /**
+     * Methode qui ajoute une note à une matiere
+     * @param matiere
+     * @param note
+     * @return
+     */
     public boolean ajouter(Matiere matiere, double note) {
 
-        if (this.formation.getCoefficients && note >= 0 && note <= 20) {
+        if (this.formation.getCoeff(matiere) != -1 && note >= 0 && note <= 20) {
             this.resultats.get(matiere).add(note);
             return true;
         }
         return false;
 
+    }
+
+    /**
+     * Methode qui retourne la moyenne d'une matiere
+     * @param matiere
+     * @return
+     */
+    public double moyenne(Matiere matiere) {
+
+        double moyenne = 0;
+
+        if (this.resultats.containsKey(matiere)) {
+            for (double note : this.resultats.get(matiere)) {
+                moyenne += note;
+            }
+            moyenne /= this.resultats.get(matiere).size();
+        }
+        return moyenne;
+    }
+
+    public double moyenneGene(){
+
+        double repMoyenne = 0;
+        double coeffTotal = 0;
+
+        for (Matiere matiere : this.resultats.keySet()) {
+            repMoyenne += this.moyenne(matiere) * this.formation.getCoeff(matiere);
+            coeffTotal += this.formation.getCoeff(matiere);
+        }
+
+        return (repMoyenne / coeffTotal);
     }
 }

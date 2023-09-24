@@ -27,7 +27,7 @@ class Matiere{
     + Matiere(String)
 }
 
-class Group{
+class Groupe{
 - etudiants : HashMap<Formation, List<Etudiant>>
     + Group(HashMap<Formation, List<Etudiant>>)
 }
@@ -36,7 +36,7 @@ Identite "1" <-- "1" Etudiant : identite
 Etudiant "1" --> "*" Formation : formation
 Etudiant "1" --> "*" Matiere : matiere
 Formation "1" --> "*" Matiere : collectionMatiere
-Group  "1" --> "*" Formation : formation
-Group  "1" --> "*" Etudiant : etudiants
+Groupe  "1" --> "*" Formation : formation
+Groupe  "1" --> "*" Etudiant : etudiants
 
 @enduml
