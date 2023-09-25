@@ -24,17 +24,21 @@ public class Etudiant {
      */
     public boolean ajouter(Matiere matiere, double note) {
 
-        if (this.resultats.containsKey(matiere) && this.formation.getCoeff(matiere) != -1 && note >= 0 && note <= 20) {
+        if (this.formation.getCoeff(matiere) != -1 && note >= 0 && note <= 20){
+
+            return false;
+        }
+
+        if (this.resultats.containsKey(matiere)) {
             this.resultats.get(matiere).add(note);
             return true;
         }
-        else if (!this.resultats.containsKey(matiere) && this.formation.getCoeff(matiere) != -1 && note >= 0 && note <= 20) {
+        else {
             List<Double> resultats = new ArrayList<Double>();
             resultats.add(note);
             this.resultats.put(matiere, resultats);
             return true;
         }
-        return false;
 
     }
 

@@ -32,4 +32,7 @@ public class FormationTest {
         //Vérification des résultats
         assertEquals(formation.getCoeff(m), 1.0, "Le coefficient de la matière devrait être 0.0");
     }
+
+    @Test
+    public void testSupMatiere
 }
