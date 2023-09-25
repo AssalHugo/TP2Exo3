@@ -24,7 +24,7 @@ public class Etudiant {
      */
     public boolean ajouter(Matiere matiere, double note) {
 
-        if (this.formation.getCoeff(matiere) != -1 && note >= 0 && note <= 20){
+        if (this.formation.getCoeff(matiere) == -1 && note >= 0 && note <= 20){
 
             return false;
         }
@@ -71,5 +71,9 @@ public class Etudiant {
         }
 
         return (repMoyenne / coeffTotal);
+    }
+
+    public Formation getFormation() {
+        return formation;
     }
 }
