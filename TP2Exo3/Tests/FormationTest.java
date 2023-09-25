@@ -34,5 +34,16 @@ public class FormationTest {
     }
 
     @Test
-    public void testSupMatiere
+    public void testSupMatiere() {
+        //Chargement des données
+        Formation formation = new Formation("identifiant");
+        Matiere m = new Matiere("nom");
+
+        //Appel de la méthode à tester
+        formation.ajoutMatiere(m, 1.0);
+        formation.supMatiere(m);
+
+        //Vérification des résultats
+        assertEquals(formation.getCoeff(m), -1.0, "La matiere ne doit plus exister");
+    }
 }
