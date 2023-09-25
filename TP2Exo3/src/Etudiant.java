@@ -49,7 +49,7 @@ public class Etudiant {
         return moyenne;
     }
 
-    public double moyenneGene(){
+    public double moyenne(){
 
         double repMoyenne = 0;
         double coeffTotal = 0;

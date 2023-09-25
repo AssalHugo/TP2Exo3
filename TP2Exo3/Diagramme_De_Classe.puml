@@ -20,6 +20,9 @@ class Formation{
 - idenitifiant : String
 - coefficients : HashMap<Matiere, double>
     + Formation(String)
+    + ajouterMatiere(Matiere, double)
+    + supMatiere(Matiere)
+    + getCoeff(Matiere): double
 }
 
 class Matiere{
