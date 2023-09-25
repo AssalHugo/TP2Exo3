@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -23,8 +24,14 @@ public class Etudiant {
      */
     public boolean ajouter(Matiere matiere, double note) {
 
-        if (this.formation.getCoeff(matiere) != -1 && note >= 0 && note <= 20) {
+        if (this.resultats.containsKey(matiere) && this.formation.getCoeff(matiere) != -1 && note >= 0 && note <= 20) {
             this.resultats.get(matiere).add(note);
+            return true;
+        }
+        else if (!this.resultats.containsKey(matiere) && this.formation.getCoeff(matiere) != -1 && note >= 0 && note <= 20) {
+            List<Double> resultats = new ArrayList<Double>();
+            resultats.add(note);
+            this.resultats.put(matiere, resultats);
             return true;
         }
         return false;
